@@ -41,3 +41,7 @@
 ## What docs are NOT for
 
 Docs explain **WHY** and **CONTRACTS**. They do not narrate **WHAT** the code does — the code already does that, and narration goes stale the moment the code changes. If a doc only restates what the code says, delete it.
+
+## Notion vs repo
+
+This role keeps **repo-bound docs** in the repo (README, CHANGELOG, JSDoc, API reference — anything that versions with code). For long-lived stakeholder-facing docs (release notes for non-technical audiences, public roadmaps, runbook indexes), `references/notion-integration.md` defines when to mirror to Notion via the Notion MCP.

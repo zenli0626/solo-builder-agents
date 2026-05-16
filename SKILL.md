@@ -46,6 +46,7 @@ Load only the file(s) you need — the system is designed so the active role's r
 - `references/analytics.md` — Analytics: events, KPIs, funnels
 - `references/growth.md` — Growth: SEO, onboarding, conversion
 - `references/docs.md` — Docs: README, API reference, changelog
+- `references/notion-integration.md` — **Read first if Notion MCP is available.** Tells every role when to write to Notion vs the repo (PRDs/TDRs/tasks → Notion, README/CHANGELOG/JSDoc → repo).
 
 ## Handoff protocol
 

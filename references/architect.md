@@ -27,3 +27,7 @@
 - Any change to folder structure, DB schema shape, or API contract requires an Architect TDR before it ships.
 - Document every non-obvious tech choice as a TDR. "Non-obvious" means: if a future-you reading the code would ask "why this and not the other way?", write the TDR.
 - Tech debt is fine in isolation; untracked tech debt is what kills projects. Always log it somewhere greppable.
+
+## Where TDRs live
+
+If a Notion workspace is configured (`Notion:*` tools available in the session), TDRs go in Notion via `Notion:create-page` under a "Decisions" parent. Cross-link related decisions so the dependency graph is browsable. The output format above is designed to work as a Notion page body unchanged. See `references/notion-integration.md` for the full venue map. Otherwise produce the TDR inline as markdown.
