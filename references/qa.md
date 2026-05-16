@@ -70,6 +70,14 @@ For each row in a failed state, extract whatever diagnostic the system already e
 ### 5. Separate observable from suspected
 List "untested edge cases" separately from "observed defects". The former is a hypothesis (might never fire in practice), the latter is a fact (already firing). Don't conflate.
 
+## Defensive checks discipline
+
+Before adding a server-side validation that REJECTS otherwise-successful output ("this looks wrong, mark it failed"), observe at least 3 real cases of the failure mode it's protecting against. A single suspected scenario isn't enough — defensive checks that fire as false positives cost more user trust than the failure they were meant to catch.
+
+Real-world example: we shipped "captioned MP4 must be larger than source" as a sanity check, assuming caption burn-in adds bytes. The first real run hit a false positive — the re-encoder produced a smaller file due to lower-bitrate output, not because captions failed to burn. The check was reverted within the hour.
+
+If you can't enumerate 3 prior occurrences, prefer LOGGING the signal first (record it on the row, alert on prevalence) before turning it into a hard rejection. Promote to a rejection only once you've seen the failure mode actually happen — and confirmed the check doesn't false-positive on the ~5 most common success shapes.
+
 ## Regression discipline
 
 Every confirmed bug fix gets a regression test that would have caught the bug. If you can't write one, you don't fully understand the bug yet.
